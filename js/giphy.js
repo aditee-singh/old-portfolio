@@ -7,8 +7,8 @@
                 .then(response=>response.json())
                 .then(content=>{
                     console.log(content.data)
-                    document.getElementById("gif").src=content.data[0].images.fixed_height_still.url;
-                    document.getElementById("gif").props=content.data[0].images.downsized.url;
+                    document.getElementById("gif").src=content.data[0].images.downsized.url;
+                    document.getElementById("gif").props=content.data[0].images.fixed_height_still.url;
                     document.getElementById('gif').style.display='block';
                 })
                 .catch((err)=>console.log(err));
@@ -19,13 +19,14 @@
                 document.getElementById("gif").props=temp;
             }
             function randomFunction() {
-                var url="https://api.giphy.com/v1/gifs/random?&api_key=dc6zaTOxFJmzC&limit=1";    
+                var url="https://api.giphy.com/v1/gifs/random?&api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&limit=1";    
                 fetch(url)
                 .then(response=>response.json())
                 .then(content=>{
                     console.log(content.data);
-                    document.getElementById("gif").src = content.data.images.fixed_height_still.url;
-	                document.getElementById("gif").props = content.data.images.downsized.url;
+                    document.getElementById("gif").src = content.data.images.downsized.url;
+                    document.getElementById("gif").props =content.data.images.fixed_height_still.url;
+                    document.getElementById('gif').style.display='block'; 
   })
   .catch((err) => alert(err));
 }
