@@ -2,6 +2,7 @@
             function searchFunction(){
                 document.getElementById("searchButton").disabled = true;
                 document.getElementById("randomButton").disabled = true;
+                document.getElementById('gif').state="1";
                 document.getElementById("gif").src="img/loading.webp";
                 document.getElementById('gif').style.display='block';
                 var giphy_name=document.getElementById("searchitem").value;
@@ -21,7 +22,10 @@
                 .catch((err)=>console.log(err));
                 }
             function showPause(){
-                document.getElementById('playpause').style.display='block';  
+                if(document.getElementById('gif').state=="1"){
+                    console.log('hi');
+                    document.getElementById('playpause').style.display='block';  
+                }
             }
             function hidePause(){
                 document.getElementById('playpause').style.display='none';
@@ -34,6 +38,7 @@
             function randomFunction() {
                 document.getElementById("gif").src="img/loading.webp";
                 document.getElementById('gif').style.display='block';
+                document.getElementById('gif').state="1";
                 var url="https://api.giphy.com/v1/gifs/random?&api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&limit=1";    
                 fetch(url)
                 .then(response=>response.json())
