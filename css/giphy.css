@@ -1,71 +1,93 @@
 body{
-    background-color: #f2f2f2;
-    font-family: 'Open Sans', sans-serif;
+  background-color: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
 }
 .search {
-    margin-top: 100px;
-    width: 100%;
-    position: relative;
-    text-align: center;
+  margin-top: 100px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  display: block;
+}
+.searchTerm {
+  width: 50%;
+  font-size: 22px;
+  border: 3px solid #cc008f;
+  padding: 5px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.searchButton {
+  width: 40px;
+  height: 54px;
+  border: 1px solid#cc008f;
+  background:#cc008f;
+  text-align: center;
+  color: #fff;
+  margin-left: 10px;
+  box-shadow:black;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.random{
+  width: 200px;
+  height: 54px;
+  border: 1px solid#cc008f;
+  background:#cc008f;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px 5px 5px 5px;
+  cursor: pointer;
+  font-size: 25px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+#result{
+  height: 325px !important;
+  width: 600px !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+.image{
     display: block;
-  }
-  .searchTerm {
-    width: 50%;
-    font-size: 22px;
-    border: 3px solid #cc008f;
-    padding: 5px;
-    height: 40px;
-    border-radius: 5px;
-    outline: none;
-    color: #9DBFAF;
-  }
-  .searchButton {
-    width: 40px;
-    height: 54px;
-    border: 1px solid#cc008f;
-    background:#cc008f;
-    text-align: center;
-    color: #fff;
-    margin-left: 10px;
-    box-shadow:black;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  .random{
-    width: 200px;
-    height: 54px;
-    border: 1px solid#cc008f;
-    background:#cc008f;
-    text-align: center;
-    color: #fff;
-    border-radius: 5px 5px 5px 5px;
-    cursor: pointer;
-    font-size: 25px;
-    margin-left: 10px;
-    font-size: 20px;
-  }
-  .image{
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 50px;
-      height: 325px;
-      width: 600px;
-  }
-  @media(max-width:768px){
-    .searchButton, .random{
-       display: block;
-       margin-left: auto;
-       margin-right: auto;
-       margin-top: 10px;
-       width: 50%;
-   }
-   .image{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    height: 325px;
+    width: 600px;
+}
+.playpause {
+  background-image:url(http://png-4.findicons.com/files/icons/2315/default_icon/256/media_play_pause_resume.png);
+  background-repeat:no-repeat;
+  width:20%;
+  height:20%;
+  position:absolute;
+  left:0%;
+  right:0%;
+  top:25%;
+  bottom:0%;
+  margin:auto;
+  background-size:contain;
+  background-position: center;
+}
+@media(max-width:768px){
+  .searchButton, .random{
      display: block;
      margin-left: auto;
      margin-right: auto;
      margin-top: 10px;
-     width: 80%;
+     width: 50%;
  }
+ image{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 10px;
+   width: 80%;
+}
 }

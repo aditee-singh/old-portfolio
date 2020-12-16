@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/giphy.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -10,14 +11,14 @@
     <body>
         <div class="search">
             <input type="text" id="searchitem" class="searchTerm" placeholder="Search for a GIF"/>
-            <button class="searchButton" onclick="searchFunction()"/>
+            <button id="searchButton" class="searchButton" onclick="searchFunction()">
                 <i class="fa fa-search"></i>
-                <button class="random" onclick="randomFunction()">Random</button>
+                <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
         </div>
     </br>
-        <div>
-            <img class="image" id="gif" src="" prop="" onclick="playPause()" style="display:none;"/>
-        </div>
+         <div id="result" > 
+             <img class="image" id="gif" src="" props="" onmouseover="showPause()" onmouseout="hidePause()" style="display: none;">
+             <div id="playpause" class="playpause" style="display: none;" onclick="playPause()"></div>
+        </div> 
         <script src="js/giphy.js"></script>
-    </body>
 </html>
