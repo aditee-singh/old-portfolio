@@ -1,5 +1,6 @@
 body{
-  background-color: #f2f2f2;
+   /* background-color: #1b1b1b;  */
+   background-color: #9DBFAF; 
   font-family: 'Open Sans', sans-serif;
 }
 .search {
@@ -46,8 +47,12 @@ body{
   font-size: 20px;
 }
 #result{
-  height: 325px !important;
-  width: 600px !important;
+  display: block;     
+  text-align: center;   
+  justify-content: center;
+  align-items: center;
+  height: 325px ;
+  width: 600px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -61,19 +66,23 @@ body{
     height: 325px;
     width: 600px;
 }
+.loader_img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  height: auto !important;
+  width: auto !important;
+}
 .playpause {
-  background-image:url(http://png-4.findicons.com/files/icons/2315/default_icon/256/media_play_pause_resume.png);
+  background-image:url('http://png-4.findicons.com/files/icons/2315/default_icon/256/media_play_pause_resume.png');
   background-repeat:no-repeat;
-  width:20%;
-  height:20%;
-  position:absolute;
-  left:0%;
-  right:0%;
-  top:25%;
-  bottom:0%;
-  margin:auto;
-  background-size:contain;
-  background-position: center;
+  /* text-align: center; */
+  width:25px;
+  height:25px;
+  position: relative;
+  top: 125px;
+  left: 50px;
 }
 @media(max-width:768px){
   .searchButton, .random{
@@ -89,5 +98,5 @@ body{
    margin-right: auto;
    margin-top: 10px;
    width: 80%;
-}
+ }
 }

@@ -16,9 +16,10 @@
                 <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
         </div>
     </br>
-         <div id="result" onmouseover="showPause()" onmouseout="hidePause()" > 
-             <img class="image" id="gif" state="0" src="" props="" style="display: none;">
-             <div id="playpause" class="playpause" style="display: none;" onclick="playPause()"></div>
-        </div> 
+    <div id="result" onmouseover="showPause()" onmouseout="hidePause()"> 
+         <div id="playpause" class="playpause" style="display:none;"></div> 
+        <img class="loader_img" id="loader_img" src="img/loader.gif" style="display: none;">
+        <img class="image" id="gif" state="0" src="" props="" style="display: none;">
+     </div> 
         <script src="js/giphy.js"></script>
 </html>
