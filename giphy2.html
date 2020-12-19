@@ -10,7 +10,6 @@
 </head>
 <body style="background-color: black;">
 <nav class="navbar navbar-inverse col-md-offset-1 col-md-9">
-    <div class="container-fluid">
     <div class="navbar-header">
         <a class="navbar-brand" href="#">WebSiteName</a>
     </div>
@@ -28,18 +27,83 @@
         <li><a href="#">Page 2</a></li>
         <li><a href="#">Page 3</a></li>
     </ul>
-    </div>
 </nav>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-offset-1 col-md-9">
+    <div class="row col-md-offset-1 col-md-9">
             <div class="form-group">
                 <input type="text" class="form-control">
             </div>
-                <img src="img/giphy.gif">
-        </div>
     </div>
-</div>
+    <img src="img/giphy.gif" class="col-md-offset-1 col-md-9">
+    <div class="row col-md-offset-1 col-md-9">
+        <h3>Trending</h3>
+        <h4 style="float: right;">All gif</h4>
+    </div>
+    <div class="row col-md-offset-1 col-md-9">
+        <div class="container">  
+             <div class="row">
+                <div class="carousel carousel-showmanymoveone slide" id="carousel123">
+                  <div class="carousel-inner" style="height: 120px;">
+                    <div class="item active">
+                      <div class="col-md-2" style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/0054A6/fff/&amp;text=1" class="img-responsive"></a></div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2" style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=2" class="img-responsive"></a></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-xs-12 col-sm-6 col-md-2" style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=2" class="img-responsive"></a></div>
+                      </div>
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2" style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/d6d6d6/333&amp;text=3" class="img-responsive"></a></div>
+                    </div>          
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2" style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/002040/eeeeee&amp;text=4" class="img-responsive"></a></div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2" style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/0054A6/fff/&amp;text=5" class="img-responsive"></a></div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2"  style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/002d5a/fff/&amp;text=6" class="img-responsive"></a></div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2"  style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/eeeeee&amp;text=7" class="img-responsive"></a></div>
+                    </div>
+                    <div class="item">
+                      <div class="col-xs-12 col-sm-6 col-md-2"  style="padding: 2px;"><a href="#"><img src="http://placehold.it/500/40a1ff/002040&amp;text=8" class="img-responsive"></a></div>
+                    </div>
+                  </div>
+                  <a class="left carousel-control" href="#carousel123" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                  <a class="right carousel-control" href="#carousel123" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+            </div>
+            
+    </div>
+    <script>
+        (function(){
+  // setup your carousels as you normally would using JS
+  // or via data attributes according to the documentation
+  // https://getbootstrap.com/javascript/#carousel
+  $('#carousel123').carousel({ interval: 2000 });
+}());
 
+(function(){
+  $('.carousel-showmanymoveone .item').each(function(){
+    var itemToClone = $(this);
+
+    for (var i=1;i<5;i++) {
+      itemToClone = itemToClone.next();
+
+      // wrap around if at end of item collection
+      if (!itemToClone.length) {
+        itemToClone = $(this).siblings(':first');
+      }
+
+      // grab item, clone, add marker class, add to collection
+      itemToClone.children(':first-child').clone()
+        .addClass("cloneditem-"+(i))
+        .appendTo($(this));
+    }
+  });
+}());
+    </script>
 </body>
 </html>
