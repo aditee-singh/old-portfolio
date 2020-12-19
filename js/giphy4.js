@@ -41,19 +41,21 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
         }
         function randomFunction() {
             //document.getElementById("gif").src="img/loading.webp";
-            document.getElementById('gif').style.display="none";
-            document.getElementById('loader_img').style.display="block";
+            // document.getElementById('gif').style.display="none";
+            // document.getElementById('loader_img').style.display="block";
             //document.getElementById('gif').style.display='block';
-            document.getElementById('gif').state="1";
+            // document.getElementById('gif').state="1";
             var url="https://api.giphy.com/v1/gifs/random?&api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&limit=1";    
             fetch(url)
             .then(response=>response.json())
             .then(content=>{
                 console.log(content.data);
-                document.getElementById("gif").src = content.data.images.downsized.url;
-                document.getElementById("gif").props =content.data.images.fixed_height_still.url;
-                document.getElementById('loader_img').style.display="none";
-                document.getElementById('gif').style.display='block'; 
+                $("<div class='col-md-4'><img src="+content.data.images.downsized.url+"props="+content.data.images.fixed_height_still.url+" style='width:100%'" + "' ></div>").appendTo(".infinite");        
+
+                // document.getElementById("gif").src = content.data.images.downsized.url;
+                // document.getElementById("gif").props =content.data.images.fixed_height_still.url;
+                // document.getElementById('loader_img').style.display="none";
+                // document.getElementById('gif').style.display='block'; 
             })
 .catch((err) => alert(err));
 } 
