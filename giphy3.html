@@ -4,8 +4,11 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/giphy.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
@@ -15,10 +18,6 @@
           background-color: black;
           color: blanchedalmond;
           font-family: 'Roboto';
-      }
-      .abc{
-          height: 100px;
-          width: 100px;
       }
       .center {
         display: block;
@@ -34,46 +33,67 @@
         align-items: baseline;
       }
 
-      .row-flex {
-        display: -ms-flexbox; /* IE10 */
-        display: flex;
-        -ms-flex-wrap: wrap; /* IE10 */
-        flex-wrap: wrap;
-        padding: 0 4px;
+        .owl-carousel .owl-nav{
+            overflow: hidden;
+            height: 0px;
         }
 
-      .column {
-        -ms-flex: 25%; /* IE10 */
-        flex: 25%;
-        max-width: 25%;
-        padding: 0 4px;
-        }
-
-        .column img {
-        margin-top: 8px;
-        vertical-align: middle;
-        width: 100%;
+        .owl-theme .owl-dots .owl-dot.active span, 
+        .owl-theme .owl-dots .owl-dot:hover span {
+            background: #2caae1;
         }
 
 
+        .owl-carousel .item {
+            text-align: center;
+        }
+        .owl-carousel .nav-btn{
+            height: 47px;
+            position: absolute;
+            width: 26px;
+            cursor: pointer;
+            top: 100px !important;
+        }
+
+        .owl-carousel .owl-prev.disabled,
+        .owl-carousel .owl-next.disabled{
+            pointer-events: none;
+            opacity: 0.2;
+        }
+
+        .owl-carousel .prev-slide{
+            background: url(img/nav-icon.png) no-repeat scroll 0px -53px;
+            left: -33px;
+        }
+        .owl-carousel .next-slide{
+            background: url(img/nav-icon.png) no-repeat scroll -24px -53px;
+            right: -33px;
+        }
+        .owl-carousel .prev-slide:hover{
+            background-position: 0px -53px;
+        }
+        .owl-carousel .next-slide:hover{
+            background-position: -24px -53px;
+        }
   </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse col-md-9 col-md-offset-1">
         <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">WebSiteName</a>
+            <a class="navbar-brand" href="#">Giphy</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Giphy</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-            
+            <li><a href="#">Reactions</a></li>
+            <li><a href="#">Entertainment</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Stickers</a></li>
+            <li><a href="#">Artists</a></li>
+            <li><a href="#">Icon</a></li>
+            <li><a href="#">Upload</a></li>
+            <li><a href="#">Create</a></li>
             <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">aditee
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Page 1-1</a></li>
@@ -81,12 +101,6 @@
                   <li><a href="#">Page 1-3</a></li>
                 </ul>
             </li>
-
-
-            <li><a href="#">Page 3</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-
         </ul>
         </div>
     </nav>
@@ -96,149 +110,111 @@
 
     <div class="row">   
      
-            <div class="form-group">
+            <div class="form-group left-right">
                 <input type="text" class="form-control" id="usr" >
-                <!-- <button type="submit" style="float: right;"><i class="fa fa-search"></i></button> -->
+                <button id="searchButton" class="searchButton" onclick="searchFunction()">
+                    <i class="fa fa-search"></i>
+                <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
             </div>
         
     </div>
 
     <div class="row">    
        
-            <img src="img/giphy.gif" alt="" class="center">     
+            <img src="img/giphy.gif" alt="" class="center" style="max-width: 100%;">     
        
     </div>
 
 
     <div class="row">
             <div class="left-right">
-                <h2> Trending </h2>
-                <span> All The Gifs   > </span>
+                <h3 style="color: white; font-weight: bold;"> Trending </h3>
+                <span style="color: gray; font-weight: bold;"> All The Gifs   > </span>
             </div>
-            
-        
     </div>
 
     <div class="row">
-            <div class="col-md-2"> 
-                <div class="thumbnail">
-                    <img src="img/trend.gif" alt="Lights" style="width:100%">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="thumbnail">      
-                    <img src="img/trend.gif" alt="Nature" style="width:100%">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="thumbnail">    
-                    <img src="img/trend.gif" alt="Fjords" style="width:100%">
-                </div>
-            </div>
-        
-            <div class="col-md-2">
-                <div class="thumbnail">
-                    <img src="img/trend.gif" alt="Lights" style="width:100%">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="thumbnail">      
-                    <img src="img/trend.gif" alt="Nature" style="width:100%">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="thumbnail">    
-                    <img src="img/trend.gif" alt="Fjords" style="width:100%">
-                </div>
-            </div>
-            
+        <div class="owl-carousel trend">
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+            <div class="item"><img src="img/trend.gif" style="width: 100%;"></div>
+        </div>
         
     </div>
         
     <div class="row">
         <div class="left-right">
-            <h1>Artists</h1>
-            <span>All GIPHY Artists ></span> 
+            <h3 style="color: white; font-weight: bold;">Artists</h3>
+            <span style="color: gray;">All Giphy Artists ></span> 
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="img/artist.gif" alt="Lights" style="width:100%">
-            </div>
+        <div class="owl-carousel artist">
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
+            <div class="item"><img src="img/artist.gif" width="100%"></div>
         </div>
-        <div class="col-md-4">
-            <div class="thumbnail">      
-                <img src="img/artist.gif" alt="Nature" style="width:100%">
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="thumbnail">    
-                <img src="img/artist.gif" alt="Fjords" style="width:100%">
-            </div>
-        </div>
-
     </div>
-
-    <div class="row tind"> 
-        <div class="col-md-2">
-          <img src="img/trend.gif" style="width:100%">
-        </div>
-        <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-          <div class="col-md-2">
-            <img src="img/trend.gif" style="width:100%">
-          </div>
-         
-
+    <div class="row">
+        <h3 style="color: white; font-weight: bold;">Videos</h3> 
     </div>
-    
-    
+    <div class="row">
+        <div class="infinite">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+            <img src="img/trend.gif">
+            <img src="img/artist.gif">
+        </div>
+    </div>
 </div>
 
     
-
-<script> 
-
-    $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() == $(document).height()) {
-
-            for ( var i = 0; i < 15; i+=1)
-            $("<div class='col-md-2'><img src="+results[i].link+" style='width:100%'" + "' ></div>").appendTo(".tind");
-            
+<script src="jquery.min.js"></script>
+<script src="owlcarousel/owl.carousel.min.js"></script>
+<script>
+  $('.trend').owlCarousel({
+            margin: 10,
+            nav: true,
+            navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+            onTranslated: function (event){
+                $('.trend')
+                .trigger('add.owl.carousel', ["<div class='item'><img src='img/trend.gif' style='width:100%'></div>"])
+                .trigger('refresh.owl.carousel');
+            }
+        });
+    $('.artist').owlCarousel({
+        margin:10,
+        nav:true,
+        navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+        onTranslated:function(event){
+            $('.artist')
+            .trigger('add.owl.carousel',["<div class='item'><img src='img/artist.gif' style='width:100%'></div>"])
+            .trigger('refresh.owl.carousel');
         }
     });
-    // window.onscroll = function(ev) {
-    //     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    //         alert("hi")
-    //         $(document).ready(function(){
-                
-    //             $("<div class='col-md-2'><img src='img/trend.gif" + "' ></div>").appendTo(".tind");
-    //         });
-    //     }
-    // };
+</script>
+<script> 
+
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() == $(document).height()) {
+
+        for ( var i = 0; i < 15; i+=1)
+        $("<div class='col-md-2'><img src='img/trend.gif' style='width:100%'" + "' ></div>").appendTo(".infinite");
+        
+    }
+});
 </script>
 
     
