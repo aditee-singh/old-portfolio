@@ -8,6 +8,10 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             document.getElementById("searchButton").disabled = true;
             document.getElementById("randomButton").disabled = true;
             var giphy_name=document.getElementById("searchitem").value;
+            if(giphy_name.length==0){
+                alert("No search item");
+                return;
+            }
             var skip_gif=0;
             document.getElementById('infinite').count=15;
             document.getElementById('infinite').searched=giphy_name;
@@ -20,6 +24,18 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             .then(response=>response.json())
             .then(content=>{     
                 console.log(content.data)
+                //alert(content.data.length);
+                if(content.data.length==0){
+                    //$(".infinite").empty();
+                    var list = document.getElementById("infinite"); 
+                    while(list.childNodes.length>0)
+                    list.removeChild(list.childNodes[0]);
+                    document.getElementById("searchButton").disabled = false;
+                    document.getElementById("randomButton").disabled = false;
+                    document.getElementById('searchitem').value="";    
+                    alert("Invalid Search");
+                    return;
+                }
                 for ( var i = 0; i < 15; i+=1){
                     document.getElementById("image_"+i).src=content.data[i].images.downsized.url;
                     document.getElementById("image_"+i).props=content.data[i].images.fixed_height_still.url;

@@ -24,25 +24,22 @@ body{
 }
 .searchButton {
   width: 40px;
-  height: 54px;
+  height: 36px;
   border: 1px solid#cc008f;
   background:#cc008f;
   text-align: center;
   color: #fff;
-  margin-left: 10px;
   box-shadow:black;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
 }
 .random{
   width: 200px;
-  height: 54px;
+  height: 36px;
   border: 1px solid#cc008f;
   background:#cc008f;
   text-align: center;
   color: #fff;
-  border-radius: 5px 5px 5px 5px;
   cursor: pointer;
   font-size: 25px;
   margin-left: 10px;
