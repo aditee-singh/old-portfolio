@@ -111,8 +111,8 @@ $(window).scroll(function() {
         var giphy_name=document.getElementById('infinite').searched;
         var skip_gif = document.getElementById('infinite').count;
         for ( var i = 0; i < 15; i+=1){
-                $("<div class='col-md-2'><img id=image_"+parseInt(parseInt(i)+parseInt(skip_gif))+" src='img/loader_img.gif' style='width:100%'" + "' ></div>").appendTo(".infinite");        
-            }
+            addDiv(parseInt(parseInt(i)+parseInt(skip_gif)));
+        }
 
         if(giphy_name.length>0){
             var url="https://api.giphy.com/v1/gifs/search?api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&q="+giphy_name+"&limit=15&offset="+skip_gif;
@@ -122,8 +122,7 @@ $(window).scroll(function() {
             .then(content=>{     
                 console.log(content.data)
                 for ( var i = 0; i < 15; i+=1){
-                    document.getElementById("image_"+parseInt(parseInt(i)+parseInt(skip_gif))).src=content.data[i].images.downsized.url;
-                    document.getElementById("image_"+parseInt(parseInt(i)+parseInt(skip_gif))).props=content.data[i].images.fixed_height_still.url;
+                    addSrc(content, parseInt(parseInt(i)+parseInt(skip_gif)), i);
                 }
                 document.getElementById("searchButton").disabled = false;
                 document.getElementById("randomButton").disabled = false;

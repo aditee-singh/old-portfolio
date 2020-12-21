@@ -4,6 +4,15 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
         document.getElementById("searchButton").click();
     }
 });
+        function addDiv(i){
+            $(`<div class='col-md-2 box' id='div_${i}' state='0' onmouseover='showPause(this.id)' onmouseout='hidePause(this.id)'><img id='image_${i}' src='img/loader_img.gif' props='' style='width:100%' ><div class='play' id='button_${i}' style='display:none;' onclick='playPause(this.id)'></div></div>`).appendTo(".infinite");        
+        }
+        function addSrc(content, i, j){
+            console.log("Ye raha contet ",content);
+            document.getElementById("image_"+i).src=content.data[j].images.downsized.url;
+            document.getElementById("image_"+i).props=content.data[j].images.fixed_height_still.url;
+            document.getElementById("div_"+i).state="1";
+        }
         function searchFunction(){
             document.getElementById("searchButton").disabled = true;
             document.getElementById("randomButton").disabled = true;
@@ -16,7 +25,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             document.getElementById('infinite').count=15;
             document.getElementById('infinite').searched=giphy_name;
             for ( var i = 0; i < 15; i+=1){
-                $(`<div class='col-md-2 box' id='div_${i}' state='0' onmouseover='showPause(this.id)' onmouseout='hidePause(this.id)'><img id='image_${i}' src='img/loader_img.gif' props='' style='width:100%' ><div class='play' id='button_${i}' style='display:none;' onclick='playPause(this.id)'></div></div>`).appendTo(".infinite");        
+                addDiv(i);
             }
             var url="https://api.giphy.com/v1/gifs/search?api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&q="+giphy_name+"&limit=15";
             console.log(url);
@@ -37,9 +46,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
                     return;
                 }
                 for ( var i = 0; i < 15; i+=1){
-                    document.getElementById("image_"+i).src=content.data[i].images.downsized.url;
-                    document.getElementById("image_"+i).props=content.data[i].images.fixed_height_still.url;
-                    document.getElementById("div_"+i).state="1";
+                    addSrc(content, i, i);
                 }
                 document.getElementById("searchButton").disabled = false;
                 document.getElementById("randomButton").disabled = false;
