@@ -83,6 +83,24 @@ body{
   background-size:contain;
   background-position: center;
 }
+.box{
+  position: relative;
+}
+.box .play{
+  background-image:url(http://png-4.findicons.com/files/icons/2315/default_icon/256/media_play_pause_resume.png);
+  transform: translate(-50%, -50%);
+  background-repeat:no-repeat;
+  width:35px;
+  height:35px;
+  position:absolute;
+  left:0%;
+  right:0%;
+  top:25%;
+  bottom:0%;
+  margin:auto;
+  background-size:contain;
+  background-position: center;
+}
 
 @media(max-width:768px){
   .searchButton, .random{

@@ -16,7 +16,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             document.getElementById('infinite').count=15;
             document.getElementById('infinite').searched=giphy_name;
             for ( var i = 0; i < 15; i+=1){
-                $("<div class='col-md-2'><img id=image_"+i+" src='img/loader_img.gif' style='width:100%'" + "' ></div>").appendTo(".infinite");        
+                $(`<div class='col-md-2 box' id='div_${i}' state='0' onmouseover='showPause(this.id)' onmouseout='hidePause(this.id)'><img id='image_${i}' src='img/loader_img.gif' props='' style='width:100%' ><div class='play' id='button_${i}' style='display:none;' onclick='playPause(this.id)'></div></div>`).appendTo(".infinite");        
             }
             var url="https://api.giphy.com/v1/gifs/search?api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&q="+giphy_name+"&limit=15";
             console.log(url);
@@ -39,6 +39,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
                 for ( var i = 0; i < 15; i+=1){
                     document.getElementById("image_"+i).src=content.data[i].images.downsized.url;
                     document.getElementById("image_"+i).props=content.data[i].images.fixed_height_still.url;
+                    document.getElementById("div_"+i).state="1";
                 }
                 document.getElementById("searchButton").disabled = false;
                 document.getElementById("randomButton").disabled = false;
@@ -46,20 +47,25 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             })
             .catch((err)=>console.log(err));
             }
-        function showPause(){
-            if(document.getElementById('gif').state=="1"&&document.getElementById('loader_img').style.display=="none"){
-                console.log('hi');
-                //document.getElementById('playpause').src="img/pause.png";  
-                document.getElementById('playpause').style.display="block";
+        function showPause(img_id){
+            img_id = img_id.split("_")[1];
+            var div_id="div_"+img_id;
+            img_id = "button_"+img_id;
+            if(document.getElementById(div_id).state=="1"){
+                document.getElementById(img_id).style.display="block";
             }
         }
-        function hidePause(){
-            document.getElementById('playpause').style.display='none';
+        function hidePause(img_id){
+            img_id = img_id.split("_")[1];
+            img_id = "button_"+img_id;
+            document.getElementById(img_id).style.display="none";
         }
-        function playPause(){
-            var temp=document.getElementById("gif").src;
-            document.getElementById("gif").src=document.getElementById("gif").props;
-            document.getElementById("gif").props=temp;
+        function playPause(div_id){
+            div_id = div_id.split("_")[1];
+            div_id = "image_"+div_id;
+            var temp=document.getElementById(div_id).src;
+            document.getElementById(div_id).src=document.getElementById(div_id).props;
+            document.getElementById(div_id).props=temp;
         }
         function randomFunction() {
             //document.getElementById("gif").src="img/loading.webp";
