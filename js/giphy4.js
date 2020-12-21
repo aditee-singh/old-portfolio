@@ -50,14 +50,18 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
         function showPause(img_id){
             img_id = img_id.split("_")[1];
             var div_id="div_"+img_id;
+            var image_id="image_"+img_id;
             img_id = "button_"+img_id;
             if(document.getElementById(div_id).state=="1"){
+                document.getElementById(image_id).style.transform="scale(1.5)";
                 document.getElementById(img_id).style.display="block";
             }
         }
         function hidePause(img_id){
             img_id = img_id.split("_")[1];
+            var image_id="image_"+img_id;
             img_id = "button_"+img_id;
+            document.getElementById(image_id).style.transform="scale(1.0)";
             document.getElementById(img_id).style.display="none";
         }
         function playPause(div_id){
