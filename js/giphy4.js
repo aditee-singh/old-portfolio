@@ -8,12 +8,12 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             $(`<div class='col-md-2 box' id='div_${i}' state='0' onmouseover='showPause(this.id)' onmouseout='hidePause(this.id)'><img id='image_${i}' src='img/loader_img.gif' props='' style='width:100%' ><div class='play' id='button_${i}' style='display:none;' onclick='playPause(this.id)'></div></div>`).appendTo(".infinite");        
         }
         function addSrc(content, i, j){
-            console.log("Ye raha contet ",content);
             document.getElementById("image_"+i).src=content.data[j].images.downsized.url;
             document.getElementById("image_"+i).props=content.data[j].images.fixed_height_still.url;
             document.getElementById("div_"+i).state="1";
         }
         function searchFunction(){
+            document.getElementById('infinite').abc="1";
             document.getElementById("searchButton").disabled = true;
             document.getElementById("randomButton").disabled = true;
             var giphy_name=document.getElementById("searchitem").value;
@@ -84,6 +84,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             // document.getElementById('loader_img').style.display="block";
             //document.getElementById('gif').style.display='block';
             // document.getElementById('gif').state="1";
+            document.getElementById('infinite').abc="0";
             var url="https://api.giphy.com/v1/gifs/random?&api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&limit=1";    
             fetch(url)
             .then(response=>response.json())
