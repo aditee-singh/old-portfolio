@@ -13,6 +13,9 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             document.getElementById("div_"+i).state="1";
         }
         function searchFunction(){
+            var list = document.getElementById("infinite"); 
+            while(list.childNodes.length>0)
+            list.removeChild(list.childNodes[0]);
             document.getElementById('wait').style.display="block";
             document.getElementById('infinite').abc="1";
             document.getElementById("searchButton").disabled = true;
@@ -81,6 +84,9 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             document.getElementById(div_id).props=temp;
         }
         function randomFunction() {
+            var list = document.getElementById("infinite"); 
+            while(list.childNodes.length>0)
+            list.removeChild(list.childNodes[0]);
             //document.getElementById("gif").src="img/loading.webp";
             // document.getElementById('gif').style.display="none";
             // document.getElementById('loader_img').style.display="block";

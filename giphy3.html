@@ -32,94 +32,54 @@
         justify-content: space-between;
         align-items: baseline;
       }
-
-        .owl-carousel .owl-nav{
-            overflow: hidden;
-            height: 0px;
-        }
-
-        .owl-theme .owl-dots .owl-dot.active span, 
-        .owl-theme .owl-dots .owl-dot:hover span {
-            background: #2caae1;
-        }
-
-
-        .owl-carousel .item {
-            text-align: center;
-        }
-        .owl-carousel .nav-btn{
-            height: 47px;
-            position: absolute;
-            width: 26px;
-            cursor: pointer;
-            top: 100px !important;
-        }
-
-        .owl-carousel .owl-prev.disabled,
-        .owl-carousel .owl-next.disabled{
-            pointer-events: none;
-            opacity: 0.2;
-        }
-
-        .owl-carousel .prev-slide{
-            background: url(img/nav-icon.png) no-repeat scroll 0px -53px;
-            left: -33px;
-        }
-        .owl-carousel .next-slide{
-            background: url(img/nav-icon.png) no-repeat scroll -24px -53px;
-            right: -33px;
-        }
-        .owl-carousel .prev-slide:hover{
-            background-position: 0px -53px;
-        }
-        .owl-carousel .next-slide:hover{
-            background-position: -24px -53px;
-        }
   </style>
 </head>
 <body>
     <nav class="navbar navbar-inverse col-md-9 col-md-offset-1">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Giphy</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Reactions</a></li>
-                    <li><a href="#">Entertainment</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Stickers</a></li>
-                    <li><a href="#">Artists</a></li>
-                    <li><a href="#">Icon</a></li>
-                    <li><a href="#">Upload</a></li>
-                    <li><a href="#">Create</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">aditee
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Page 1-1</a></li>
-                            <li><a href="#">Page 1-2</a></li>
-                            <li><a href="#">Page 1-3</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="giphy3.html">
+                <img src="img/giphyicon.jpg" width="50" height="50" style="float: left; margin-top: -10px;" alt="">
+                <span class="brand_name text-white" style="float: left;">GIPHY</span>
+            </a>            
         </div>
-    </nav>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav" style="font-weight: bolder; font-size: 15px; align-items: baseline" >
+                <li><a href="https://giphy.com/reactions">Reactions</a><div class="under"></div></li>
+                <li><a href="https://giphy.com/entertainment">Entertainment</a><div class="under"></div></li>
+                <li><a href="https://giphy.com/stickers">Stickers</a><div class="under"></div></li>
+                <li><a href="https://giphy.com/artists">Artists</a><div class="under"></div></li>
+                <!-- <li><a href="#">Icon</a></li> -->
+                <li class="nav_button"><a href="https://giphy.com/upload">Upload</a></li>
+                <li class="nav_button"><a href="https://giphy.com/create">Create</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><span class="eyes"></span></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">aditee
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Favorites</a></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 <div class="container-fluid col-md-9 col-md-offset-1">
 
 
     <div class="row">   
      
             <div class="form-group left-right">
-                <input type="text" class="form-control" id="usr" >
+                <input type="text" class="form-control" id="searchitem" >
                 <button id="searchButton" class="searchButton" onclick="searchFunction()">
                     <i class="fa fa-search"></i>
                 <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
@@ -223,6 +183,20 @@ $(window).scroll(function() {
         
     }
 });
+document.getElementById("searchitem").addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("searchButton").click();
+    }
+});
+function searchFunction(){
+    var text = document.getElementById('searchitem').value;
+    console.log(text);
+    if(text.length>0)
+    {
+        location.replace("giphy4.html?search="+text);
+    }
+}
 </script>
 
     
