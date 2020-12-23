@@ -5,7 +5,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
     }
 });
         function addDiv(i){
-            $(`<div class='col-md-2 box' id='div_${i}' state='0' onmouseover='showPause(this.id)' onmouseout='hidePause(this.id)'><img id='image_${i}' src='img/loader_img.gif' props='' style='width:100%' ><div class='play' id='button_${i}' style='display:none;' onclick='playPause(this.id)'></div></div>`).appendTo(".infinite");        
+            $(`<div class='col-md-2 box' id='div_${i}' state='0' onmouseover='showPause(this.id)' onmouseout='hidePause(this.id)'><img id='image_${i}' src='' props='' style='width:100%' ><div class='play' id='button_${i}' style='display:none;' onclick='playPause(this.id)'></div></div>`).appendTo(".infinite");        
         }
         function addSrc(content, i, j){
             document.getElementById("image_"+i).src=content.data[j].images.downsized.url;
@@ -13,6 +13,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             document.getElementById("div_"+i).state="1";
         }
         function searchFunction(){
+            document.getElementById('wait').style.display="block";
             document.getElementById('infinite').abc="1";
             document.getElementById("searchButton").disabled = true;
             document.getElementById("randomButton").disabled = true;
@@ -45,6 +46,7 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
                     alert("Invalid Search");
                     return;
                 }
+                document.getElementById('wait').style.display="none";
                 for ( var i = 0; i < 15; i+=1){
                     addSrc(content, i, i);
                 }
@@ -84,13 +86,15 @@ document.getElementById("searchitem").addEventListener("keyup", function(event) 
             // document.getElementById('loader_img').style.display="block";
             //document.getElementById('gif').style.display='block';
             // document.getElementById('gif').state="1";
+            document.getElementById('wait').style.display="block";
             document.getElementById('infinite').abc="0";
             var url="https://api.giphy.com/v1/gifs/random?&api_key=EIkbwVRNCK8YVEfOVdMHG3ujfSCFjGVO&limit=1";    
             fetch(url)
             .then(response=>response.json())
             .then(content=>{
                 console.log(content.data);
-                $("<div class='col-md-4'><img src="+content.data.images.downsized.url+"props="+content.data.images.fixed_height_still.url+" style='width:100%'" + "' ></div>").appendTo(".infinite");        
+                document.getElementById('wait').style.display="none";
+                $("<div class='col-md-4' ><img src="+content.data.images.downsized.url+"props="+content.data.images.fixed_height_still.url+" style='width:100%'" + "' ></div>").appendTo(".infinite");        
 
                 // document.getElementById("gif").src = content.data.images.downsized.url;
                 // document.getElementById("gif").props =content.data.images.fixed_height_still.url;

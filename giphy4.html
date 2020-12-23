@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="css/test.css">
   <link rel="stylesheet" href="css/giphy.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -33,9 +32,38 @@
         justify-content: space-between;
         align-items: baseline;
       }
-      /* li:hover {
+      .navbar{
+          background-color: black;
+        }      
+    .navbar-inverse .navbar-nav>li>a {
+    color: white;
+    }
+    .brand_name{
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        font-weight: 900;
+        color: white;
+        font-size: 40px;
+    }
+      .navbar-nav>li:hover {
         background: linear-gradient(103deg,#6157ff,#7067ff,#6157ff);
-    } */
+    }
+    .nav_button>a{
+        background-color: #6157ff;
+        margin: 0px 3px 0px 3px ;
+        text-align: center;
+        align-items: center !important;
+    }
+    .eyes{
+        content: url('img/eyes.gif');
+        height: 40px;
+        width: 40px;
+        margin-top: 10px;
+    }
+    .under{
+        height: 3px;
+        background-color: #6157ff;
+        margin-left: 4px;
+    }
   </style>
 </head>
 <body>
@@ -48,22 +76,22 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img src="img/giphyicon.jpg" width="60" height="60" alt="">
-                    <span class="brand_name text-white" >GIPHY</span>
+                    <img src="img/giphyicon.jpg" width="50" height="50" style="float: left; margin-top: -10px;" alt="">
+                    <span class="brand_name text-white" style="float: left;">GIPHY</span>
                 </a>            
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav" style="font-weight: bolder; font-size: 15px; align-items: baseline" >
-                    <li><a href="#">Reactions</a></li>
-                    <li><a href="#">Entertainment</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="#">Stickers</a></li>
-                    <li><a href="#">Artists</a></li>
-                    <li><a href="#">Icon</a></li>
-                    <li><a href="#">Upload</a></li>
-                    <li><a href="#">Create</a></li>
+                    <li><a href="#">Reactions</a><div class="under"></div></li>
+                    <li><a href="#">Entertainment</a><div class="under"></div></li>
+                    <li><a href="#">Stickers</a><div class="under"></div></li>
+                    <li><a href="#">Artists</a><div class="under"></div></li>
+                    <!-- <li><a href="#">Icon</a></li> -->
+                    <li class="nav_button"><a href="#">Upload</a></li>
+                    <li class="nav_button"><a href="#">Create</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li><span class="eyes"></span></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">aditee
                         <span class="caret"></span></a>
@@ -83,12 +111,15 @@
 
     <div class="row">   
      
-            <div class="form-group left-right">
-                <input type="text" class="form-control" id="searchitem"placeholder="Search for GIFs" >
-                <button id="searchButton" class="searchButton" onclick="searchFunction()">
-                    <i class="fa fa-search"></i>
+        <div class="form-group left-right">
+            <input type="text" class="form-control" id="searchitem"placeholder="Search for GIFs" >
+            <button id="searchButton" class="searchButton" onclick="searchFunction()">
+                <i class="fa fa-search"></i>
+            </button>
+            <div class="randomdiv">
                 <button id="randomButton" class="random" onclick="randomFunction()">Random</button>
-            </div>
+            </div>                    
+        </div>
         
     </div>
 
@@ -96,6 +127,10 @@
        
             <img src="img/giphy.gif" alt="" class="center" style="max-width: 100%;">     
        
+    </div>
+    <div class="row">
+        <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;margin-left:400px;margin-top:50px;padding:2px;"><img src='img/loader_img.gif' width="100" height="100" /><br>Loading..</div>
+
     </div>
 
     <div class="row">
